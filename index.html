@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+</head>
+<style>
+    #tab {
+        width: 400px;
+    }
+    .tab-header {
+        display: inline-block;
+        border: 1px solid black;
+        font-size: 24px;
+        color: #494949;
+        background: #d8ee10;
+        font-weight: bold;
+    }
+    .tab-header.active {
+        color: #ed1616;
+    }
+    .tab-content {
+        display: none;
+        width: 100%;
+        height: auto;
+        background: #f5eb7e;
+    }
+    .tab-content.active {
+        display: inline-block;
+    }
+</style>
+<body>
+    <div id="wrapper">
+        <div id="tab">
+            <div class="tab-header active">Java Script</div>
+            <div class="tab-header">Python</div>
+            <div class="tab-header">C#</div>
+            <div class="tab-header">Ruby</div>
+
+            <div class="tab-content active">JavaScript là ngôn ngữ lập trình được nhà phát triển sử dụng để tạo trang web tương tác. Từ làm mới bảng tin trên trang mạng xã hội đến hiển thị hình ảnh động và bản đồ tương tác, các chức năng của JavaScript có thể cải thiện trải nghiệm người dùng của trang web. Là ngôn ngữ kịch bản phía máy khách, JavaScript là một trong những công nghệ cốt lõi của World Wide Web. Ví dụ: khi duyệt internet, bất cứ khi nào bạn thấy quảng cáo quay vòng dạng hình ảnh, menu thả xuống nhấp để hiển thị hoặc màu sắc phần tử thay đổi động trên trang web cũng chính là lúc bạn thấy các hiệu ứng của JavaScript.</div>
+            <div class="tab-content">Python là một ngôn ngữ lập trình bậc cao cho các mục đích lập trình đa năng, do Guido van Rossum tạo ra và lần đầu ra mắt vào năm 1991. Python được thiết kế với ưu điểm mạnh là dễ đọc, dễ học và dễ nhớ.</div>
+            <div class="tab-content">C# là một ngôn ngữ lập trình hướng đối tượng đa năng, mạnh mẽ được phát triển bởi Microsoft, C# là phần khởi đầu cho kế hoạch .NET của họ. Tên của ngôn ngữ bao gồm ký tự thăng theo Microsoft nhưng theo ECMA là C#, chỉ bao gồm dấu số thường. Microsoft phát triển C# dựa trên C++ và Java.</div>
+            <div class="tab-content">Ruby là một ngôn ngữ lập trình hướng đối tượng, có khả năng phản ứng. Theo tác giả, Ruby chịu ảnh hưởng bởi Perl, Smalltalk, Eiffel, Ada và Lisp. Ruby là ngôn ngữ thông dịch và hướng đối tượng. Ruby cung cấp nhiều mẫu hình lập trình, bao gồm lập trình hàm, hướng đối tượng, mệnh lệnh, phản xạ.</div>
+        </div>
+    </div>
+</body>
+<script>
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+    tabHeaders = $$('.tab-header')
+    tabContents = $$('.tab-content')
+
+    tabHeaders.forEach((tab, index) => {
+        const tabContent = tabContents[index]
+
+        tab.onclick = (index) => {
+            $('.tab-header.active').classList.remove('active')
+            $('.tab-content.active').classList.remove('active')
+
+            tabContent.classList.add('active')
+            tab.classList.add('active')
+        }
+    })
+</script>
+</html>
